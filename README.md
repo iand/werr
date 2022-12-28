@@ -13,6 +13,8 @@ The `Wrap` function will annotate the error with the stack frame of the function
 Subsequent calls to wrap will result in a nested set of stack frames forming a call chain.
 When the error is formatted, the stack frame can be printed as a multiline trace by using the `%+v` verb, for example `fmt.Printf("error %+v", err)`
 
+`Wrap` will not wrap a nil error so it is idiomatic to return `werr.Wrap(err)` without a nil check.
+
 This package is compatible with (and uses) `golang.org/x/xerrors`. 
 The `Wrap` function is essentially a missing function from the xerrors package. 
 
